@@ -17,7 +17,7 @@ function App() {
    console.log('Llamada Backend')
 
      fetch('https://apimas.onrender.com/')
-        .then((response) => response.json())
+        .then((response) => response.text())
         .then((data) => {
            console.log(data);
            setPosts(data);
