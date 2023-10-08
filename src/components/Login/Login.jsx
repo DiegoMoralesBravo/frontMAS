@@ -30,12 +30,10 @@ export const Login = ({ setVisibleOther, setVisibleSelf }) => {
     .then((response) => response.text())
     .then((data) => {
        console.log(data);
-       setPosts(data);
     })
     .catch((err) => {
        console.log(err.message);
     });
-
 
     setUser('Diego')
     setVisibleSelf(false)
