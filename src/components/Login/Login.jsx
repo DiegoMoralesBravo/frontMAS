@@ -16,8 +16,8 @@ export const Login = ({ setVisibleOther, setVisibleSelf }) => {
     console.log('Entre')
 
     const userData = {
-      username: username,
-      email: email
+      email: 'iker@gmail.com',
+      password: '1234',
     };
 
     fetch('https://apimas.onrender.com/createUser', {
