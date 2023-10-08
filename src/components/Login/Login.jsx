@@ -14,6 +14,29 @@ export const Login = ({ setVisibleOther, setVisibleSelf }) => {
   const login = (e) => {
     e.preventDefault()
     console.log('Entre')
+
+    const userData = {
+      username: username,
+      email: email
+    };
+
+    fetch('https://apimas.onrender.com/createUser', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userData)
+    })
+    .then((response) => response.text())
+    .then((data) => {
+       console.log(data);
+       setPosts(data);
+    })
+    .catch((err) => {
+       console.log(err.message);
+    });
+
+
     setUser('Diego')
     setVisibleSelf(false)
   }
