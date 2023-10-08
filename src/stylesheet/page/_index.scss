@@ -8,7 +8,7 @@
     flex-direction: column;
     align-items: left;
     justify-content: space-between;
-    min-height: 270px;
+    min-height: 190px;
 
     .text-container {
       max-width: 700px;
@@ -22,6 +22,7 @@
     .half-line {
       border: black 3px solid;
       width: 200px;
+      margin: 20px 0; 
     }
 
     .half-line-100 {
@@ -32,6 +33,13 @@
     .description-container {
       color: $second-color-text;
       max-width: 600px;
+
+      p {
+        padding-bottom: 15px;
+      }
+      li {
+        padding-bottom: 10px;
+      }
     }
 
     .buttons-container {

@@ -5,11 +5,13 @@ import { useEffect } from 'react'
 import { Modal } from './components/Modal'
 import { Login } from './components/Login/Login'
 import { SignUp } from './components/SignUp/SignUp'
+import { Contact } from './components/Contact/Contact'
 
 function App() {
   const [user, setUser] = useState('')
   const [visibleLogIn, setVisibleLogIn] = useState(false);
   const [visibleSignUp, setVisibleSignUp] = useState(false);
+  const [visibleContact, setVisibleContact] = useState(false);
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -33,7 +35,8 @@ function App() {
         setUser,
         user,
         setVisibleLogIn,
-        setVisibleSignUp
+        setVisibleSignUp,
+        setVisibleContact
       }}>
         <Router />
         {visibleLogIn && (
@@ -46,6 +49,12 @@ function App() {
           <Modal
             componente={<SignUp setVisibleOther={setVisibleLogIn} setVisibleSelf={setVisibleSignUp} />}
             setVisible={setVisibleSignUp}
+          />
+        )}
+        {visibleContact && (
+          <Modal
+            componente={<Contact/>}
+            setVisible={setVisibleContact}
           />
         )}
       </context.Provider>

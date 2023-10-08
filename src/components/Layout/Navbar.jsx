@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 
 export const Navbar = () => {
-  const { user, setUser, setVisibleLogIn } = useContext(context);
+  const { user, setUser, setVisibleLogIn, setVisibleContact } = useContext(context);
 
   return (
     <>
@@ -43,7 +43,7 @@ export const Navbar = () => {
               <NavLink to="/history">
                 <li>Docs</li>
               </NavLink>
-              <NavLink to="/history">
+              <NavLink onClick={() => { setVisibleContact(true) }} to="#">
                 <li>Contact</li>
               </NavLink>
             </>}
