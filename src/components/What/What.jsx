@@ -15,8 +15,7 @@ export const What = () => {
           <div className='half-line-100'>
           </div>
           <div className='description-container'>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit iste quia deleniti fugiat amet esse autem nam quis dolore, veniam eaque in fuga accusamus ratione? Rem, fugiat? Eius, aspernatur maxime!
-          Est nobis tempora, soluta ea provident natus nisi expedita nulla officia id dolore laboriosam quibusdam quaerat dolorum cum minima iusto voluptas quidem fugiat harum eos fuga assumenda perspiciatis. Illum, fuga.</p>
+          <p>Micrograph Analysis System (MAS) is an innovative web application designed to simplify and enhance the analysis of microscope images, known as micrographs. MAS harnesses the power of artificial intelligence and machine learning to provide valuable insights from these micrographs, making it easier to understand the details and features within the samples.</p>
           </div>
         </div>
       </div>
