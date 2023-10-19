@@ -27,28 +27,27 @@ export const SignUp = ({ setVisibleOther, setVisibleSelf }) => {
       return;
     }
 
-    // API call to send data
-    try {
-      const response = await fetch('https://apimas.onrender.com/add', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          email,
-          occupation,
-          password
-        })
-      });
-      const data = await response.json();
-      console.log(data);
+    const data = {
+      email,
+      password,
+      occupation
+    };
 
-      // TODO: Handle the response as required
-      setVisibleSelf(false);
-      setVisibleOther(true);
-    } catch (error) {
-      console.error("There was an error sending the data:", error);
-    }
+    // API call to send data
+    fetch('https://apimas.onrender.com/add', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   }
 
   return (
