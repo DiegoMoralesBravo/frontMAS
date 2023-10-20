@@ -33,6 +33,8 @@ export const SignUp = ({ setVisibleOther, setVisibleSelf }) => {
       occupation
     };
 
+    console.log(data)
+
     // API call to send data
     fetch('https://apimas.onrender.com/add', {
       method: 'POST',
@@ -41,7 +43,7 @@ export const SignUp = ({ setVisibleOther, setVisibleSelf }) => {
       },
       body: JSON.stringify(data)
     })
-      .then((response) => response.json())
+      .then((response) => response.text())
       .then((data) => {
         console.log(data);
       })
