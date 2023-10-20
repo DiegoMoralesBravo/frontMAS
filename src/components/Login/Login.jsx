@@ -6,37 +6,36 @@ export const Login = ({ setVisibleOther, setVisibleSelf }) => {
 
   const { setUser, setVisibleLogIn } = useContext(context);
 
+  // Estados para los inputs
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   const signUp = (e) => {
     setVisibleSelf(false)
     setVisibleOther(true)
   }
 
-  const login = (e) => {
-    e.preventDefault()
-    console.log('Entre')
+  const login = async (e) => { // <-- Agregado async para permitir llamadas asíncronas
+    e.preventDefault();
 
-    const userData = {
-      email: 'iker@gmail.com',
-      password: '1234',
-    };
-
-    fetch('https://apimas.onrender.com/createUser', {
-      method: 'POST',
-      headers: {
+    // Enviar datos a la API
+    try {
+      const response = await fetch('https://apimas.onrender.com/userValidation', { // <-- Reemplaza 'URL_DEL_ENDPOINT' con la URL de tu API
+        method: 'POST',
+        headers: {
           'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(userData)
-    })
-    .then((response) => response.text())
-    .then((data) => {
-       console.log(data);
-    })
-    .catch((err) => {
-       console.log(err.message);
-    });
+        },
+        body: JSON.stringify({ email, password })
+      });
 
+      const data = await response.json();
+      console.log(data);
+
+    } catch (error) {
+      console.error('Hubo un error al hacer login:', error);
+    }
     setUser('Diego')
-    setVisibleSelf(false)
+    setVisibleSelf(false);
   }
 
   return (
