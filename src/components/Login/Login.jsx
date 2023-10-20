@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'; // <-- Agregado useState
 import { useContext } from "react";
-import { useState } from "react";
 import { context } from '../../context/context'
 
 export const Login = ({ setVisibleOther, setVisibleSelf }) => {
@@ -12,12 +11,13 @@ export const Login = ({ setVisibleOther, setVisibleSelf }) => {
   const [password, setPassword] = useState('');
 
   const signUp = (e) => {
-    setVisibleSelf(false)
-    setVisibleOther(true)
+    setVisibleSelf(false);
+    setVisibleOther(true);
   }
 
   const login = async (e) => { // <-- Agregado async para permitir llamadas asíncronas
     e.preventDefault();
+    setUser('Diego');
 
     // Enviar datos a la API
     try {
@@ -30,12 +30,11 @@ export const Login = ({ setVisibleOther, setVisibleSelf }) => {
       });
 
       const data = await response.json();
-      console.log(data);
-
+      console.log(data)
     } catch (error) {
       console.error('Hubo un error al hacer login:', error);
     }
-    setUser('Diego')
+
     setVisibleSelf(false);
   }
 
@@ -49,16 +48,19 @@ export const Login = ({ setVisibleOther, setVisibleSelf }) => {
               type="email"
               placeholder="Email"
               autoSave='false'
+              value={email} // <-- Vincula el estado 'email'
+              onChange={(e) => setEmail(e.target.value)} // <-- Actualiza el estado 'email' con cada cambio
             />
             <input className='input-form'
               type="password"
               placeholder="Password"
-              
+              value={password} // <-- Vincula el estado 'password'
+              onChange={(e) => setPassword(e.target.value)} // <-- Actualiza el estado 'password' con cada cambio
             />
             <a href="#" onClick={() => { }}>
               Forgot password?
             </a>
-            <button className='button-form' onClick={(e) => login(e)} >Login</button>
+            <button className='button-form' onClick={(e) => login(e)}>Login</button>
             <p>Not a member? <a href="#" onClick={() => signUp()}>
               Signup
             </a></p>

@@ -43,7 +43,13 @@ export const SignUp = ({ setVisibleOther, setVisibleSelf }) => {
       const data = await response.json();
       console.log(data);
 
-      // TODO: Handle the response as required
+      if (data.message == 'Email already in use') {
+        alert("Email already in use");
+        clearForm(); // Clear the form when passwords don't match
+        return;
+      }
+
+
       setVisibleSelf(false);
       setVisibleOther(true);
     } catch (error) {
