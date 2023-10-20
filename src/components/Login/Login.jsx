@@ -10,6 +10,11 @@ export const Login = ({ setVisibleOther, setVisibleSelf }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const clearForm = () => {
+    setEmail("");
+    setPassword("");
+  }
+
   const signUp = (e) => {
     setVisibleSelf(false);
     setVisibleOther(true);
@@ -17,7 +22,6 @@ export const Login = ({ setVisibleOther, setVisibleSelf }) => {
 
   const login = async (e) => { // <-- Agregado async para permitir llamadas asíncronas
     e.preventDefault();
-    setUser('Diego');
 
     // Enviar datos a la API
     try {
@@ -31,11 +35,18 @@ export const Login = ({ setVisibleOther, setVisibleSelf }) => {
 
       const data = await response.json();
       console.log(data)
+
+      if (data.message == 'User validated successfully') {
+        setUser(data.user);
+        setVisibleSelf(false);
+      } else {
+        alert("Wrong user or email");
+        clearForm(); // Clear the form when passwords don't match
+        return;
+      }
     } catch (error) {
       console.error('Hubo un error al hacer login:', error);
     }
-
-    setVisibleSelf(false);
   }
 
   return (
