@@ -40,7 +40,7 @@ export const Login = ({ setVisibleOther, setVisibleSelf }) => {
         setUser(data.user);
         setVisibleSelf(false);
       } else {
-        alert("Wrong user or email");
+        alert("Wrong Email or Password");
         clearForm(); // Clear the form when passwords don't match
         return;
       }

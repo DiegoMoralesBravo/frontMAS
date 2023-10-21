@@ -5,6 +5,31 @@ import { context } from '../../context/context'
 import { NavLink } from "react-router-dom";
 
 
+const generation = async (e) => {
+  e.preventDefault();
+
+  console.log('Generation')
+
+  // API call to send data
+  try {
+    const response = await fetch('https://apimas.onrender.com/generation', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        imagen: 'imagen'
+      })
+    });
+    const data = await response.json();
+    
+    console.log(data);
+
+  } catch (error) {
+    console.error("There was an error sending the data:", error);
+  }
+}
+
 export const Navbar = () => {
   const { user, setUser, setVisibleLogIn, setVisibleContact } = useContext(context);
 
@@ -40,7 +65,7 @@ export const Navbar = () => {
               <NavLink onClick={() => { setVisibleLogIn(true) }} to="#">
                 <li>Log in</li>
               </NavLink>
-              <NavLink to="/history">
+              <NavLink onClick={generation} to="#">
                 <li>Docs</li>
               </NavLink>
               <NavLink onClick={() => { setVisibleContact(true) }} to="#">
