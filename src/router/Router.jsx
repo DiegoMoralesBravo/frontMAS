@@ -7,6 +7,7 @@ import { Navbar } from './../components/Layout/Navbar'
 import { useContext } from "react";
 import { context } from './../context/context'
 import { Report } from '../components/Report/Report';
+import { Plants } from '../components/Plants/Plants';
 
 export const Router = () => {
   const { user } = useContext(context);
@@ -19,6 +20,7 @@ export const Router = () => {
           <>
             <Route path="/report" element={<Report />} />
             <Route path="/history" element={<History />} />
+            <Route path="/plants" element={<Plants />} />
           </>
         ) :
           ''
