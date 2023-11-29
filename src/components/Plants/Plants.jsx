@@ -74,10 +74,14 @@ export const Plants = () => {
 
   const removePlant = async (plantId, index) => {
     try {
-      const response = await fetch(`https://apimas.onrender.com/removePlant/${plantId}`, {
-        method: 'DELETE'
+      const response = await fetch(`https://apimas.onrender.com/removePlant`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ plantId: plantId })
       });
-  
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
