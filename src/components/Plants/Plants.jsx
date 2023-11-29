@@ -38,9 +38,10 @@ export const Plants = () => {
   }, [user]);
 
   const searchPlants = (searchQuery) => {
-    const filteredData = plantsData.filter(plant =>
-      plant.nombre.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    const filteredData = plantsData
+      .filter(plant => plant.nombre.toLowerCase().includes(searchQuery.toLowerCase()))
+      .slice(0, 4); // Limitar a los primeros 4 resultados
+  
     setResults(filteredData);
   };
 
