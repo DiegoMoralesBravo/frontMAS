@@ -18,8 +18,38 @@ export const Plants = () => {
     setResults(filteredData);
   };
 
-  const addPlant = (plant) => {
+  const addPlant = async (plant) => {
+    // Agregar la planta a la tabla
     setSelectedPlants(prevSelectedPlants => [...prevSelectedPlants, plant]);
+  
+    // Datos a enviar
+    const dataToSend = {
+      usuario: user,
+      nombre: plant.nombre,
+      frecuenciaRiego: plant.frecuenciaRiego,
+      descripcion: plant.descripcion,
+      recomendaciones: plant.recomendaciones
+    };
+  
+    // Petición POST al endpoint de la API
+    try {
+      const response = await fetch('https://apimas.onrender.com/addPlant', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dataToSend)
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      const result = await response.json();
+      console.log('Planta guardada con éxito:', result);
+    } catch (error) {
+      console.error('Error al guardar la planta:', error);
+    }
   };
 
   const removePlant = (index) => {

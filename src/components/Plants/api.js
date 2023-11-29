@@ -197,5 +197,125 @@ const plantsData = [
         "descripcion": "Planta con hojas en forma de trébol y color púrpura.",
         "recomendaciones": "Luz indirecta, suelo húmedo."
       },
+      {
+        "nombre": "Rosa",
+        "frecuenciaRiego": 48,
+        "descripcion": "Flor clásica con fragancia distintiva y variedad de colores.",
+        "recomendaciones": "Sol pleno, suelo bien drenado, poda regular."
+      },
+      {
+        "nombre": "Girasol",
+        "frecuenciaRiego": 24,
+        "descripcion": "Flor grande y brillante que sigue al sol.",
+        "recomendaciones": "Sol directo, suelo nutritivo, apoyo para tallos largos."
+      },
+      {
+        "nombre": "Tulipán",
+        "frecuenciaRiego": 72,
+        "descripcion": "Flor bulbosa con una amplia gama de colores.",
+        "recomendaciones": "Sol parcial, evitar el agua estancada, buen drenaje."
+      },
+      {
+        "nombre": "Dalia",
+        "frecuenciaRiego": 48,
+        "descripcion": "Flores vistosas con patrones y colores variados.",
+        "recomendaciones": "Sol pleno, suelo rico y bien drenado, protección contra el viento."
+      },
+      {
+        "nombre": "Clavel",
+        "frecuenciaRiego": 48,
+        "descripcion": "Flores populares por su longevidad y variedad de colores.",
+        "recomendaciones": "Sol pleno a parcial, suelo fértil y bien drenado."
+      },
+      {
+        "nombre": "Lirio",
+        "frecuenciaRiego": 72,
+        "descripcion": "Flor elegante con fragancia dulce y flores grandes.",
+        "recomendaciones": "Sol pleno a parcial, suelo bien drenado, evitar el riego excesivo."
+      },
+      {
+        "nombre": "Peonía",
+        "frecuenciaRiego": 72,
+        "descripcion": "Flores grandes y fragantes, disponibles en varios colores.",
+        "recomendaciones": "Sol pleno, suelo rico y bien drenado, poda en otoño."
+      },
+      {
+        "nombre": "Azalea",
+        "frecuenciaRiego": 48,
+        "descripcion": "Arbusto con flores vistosas, ideal para jardines sombríos.",
+        "recomendaciones": "Sombra parcial, suelo ácido y húmedo, evitar el sol directo."
+      },
+      {
+        "nombre": "Margarita",
+        "frecuenciaRiego": 48,
+        "descripcion": "Flor simple y alegre con un centro oscuro y pétalos blancos.",
+        "recomendaciones": "Sol pleno a parcial, suelo bien drenado, resistente a la sequía."
+      },
+      {
+        "nombre": "Camelia",
+        "frecuenciaRiego": 72,
+        "descripcion": "Arbusto de floración invernal con flores grandes y brillantes.",
+        "recomendaciones": "Sombra parcial, proteger del sol intenso, suelo ácido y húmedo."
+      },
+      {
+        "nombre": "Petunia",
+        "frecuenciaRiego": 48,
+        "descripcion": "Flor popular para canteros y contenedores con una amplia gama de colores.",
+        "recomendaciones": "Sol pleno, suelo bien drenado, poda para fomentar más flores."
+      },
+      {
+        "nombre": "Hortensia",
+        "frecuenciaRiego": 48,
+        "descripcion": "Arbusto con grandes flores en forma de bola, colores varían según la acidez del suelo.",
+        "recomendaciones": "Sombra parcial, suelo húmedo y rico, proteger de temperaturas extremas."
+      },
+      {
+        "nombre": "Geranio",
+        "frecuenciaRiego": 72,
+        "descripcion": "Planta de floración prolongada, ideal para balcones y ventanas.",
+        "recomendaciones": "Sol pleno a parcial, evitar encharcamiento, poda regular."
+      },
+      {
+        "nombre": "Iris",
+        "frecuenciaRiego": 48,
+        "descripcion": "Flor elegante con una variedad de colores y patrones.",
+        "recomendaciones": "Sol pleno a parcial, suelo bien drenado, dividir los rizomas cada pocos años."
+      },
+      {
+        "nombre": "Viola",
+        "frecuenciaRiego": 48,
+        "descripcion": "Pequeñas flores en una variedad de colores vivos.",
+        "recomendaciones": "Sol pleno a sombra parcial, suelo rico y húmedo, poda para prolongar la floración."
+      },
+      {
+        "nombre": "Begonia",
+        "frecuenciaRiego": 72,
+        "descripcion": "Planta con flores coloridas y hojas ornamentales.",
+        "recomendaciones": "Luz indirecta, evitar agua en las hojas, suelo bien drenado."
+      },
+      {
+        "nombre": "Narciso",
+        "frecuenciaRiego": 72,
+        "descripcion": "Bulbo de primavera con flores amarillas o blancas en forma de trompeta.",
+        "recomendaciones": "Sol pleno a parcial, suelo bien drenado, plantar bulbos en otoño."
+      },
+      {
+        "nombre": "Amapola",
+        "frecuenciaRiego": 72,
+        "descripcion": "Flor silvestre con pétalos delicados y un centro oscuro.",
+        "recomendaciones": "Sol pleno, suelo pobre y bien drenado, sembrar directamente en el jardín."
+      },
+      {
+        "nombre": "Magnolia",
+        "frecuenciaRiego": 72,
+        "descripcion": "Árbol o arbusto con grandes y fragantes flores blancas o rosadas.",
+        "recomendaciones": "Sol pleno a parcial, suelo rico y húmedo, evitar mover una vez plantada."
+      },
+      {
+        "nombre": "Zinnia",
+        "frecuenciaRiego": 48,
+        "descripcion": "Flor de fácil cuidado con flores brillantes y multicolores.",
+        "recomendaciones": "Sol pleno, suelo bien drenado, eliminar flores marchitas para fomentar más floración."
+      },
   ]
 export default plantsData;
