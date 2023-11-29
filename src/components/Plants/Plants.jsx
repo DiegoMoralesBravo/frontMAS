@@ -215,7 +215,7 @@ export const Plants = () => {
         {results.map((plant, index) => (
           <div key={index} className="result-item">
             {plant.nombre}
-            <button onClick={() => addPlant(plant)}>+</button>
+            <button className="addButton" onClick={() => addPlant(plant)}>+</button>
           </div>
         ))}
       </div>
@@ -254,13 +254,19 @@ export const Plants = () => {
       <style jsx>{`
         .result-item {
           display: flex;
-          justify-content: space-between;
+          justify-content: flex-start;
           align-items: center;
-          margin-bottom: 5px;
+          margin-bottom: 20px;
+          width: 300px
+        }
+
+        .addButton {
+          height: 15px;
+          width: 15px;
         }
 
         .crud-table {
-          width: 100%;
+          width: 80%;
           border-collapse: collapse;
         }
 
