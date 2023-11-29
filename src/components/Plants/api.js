@@ -137,5 +137,65 @@ const plantsData = [
         "descripcion": "Planta con hojas que crecen en un patrón radial.",
         "recomendaciones": "Luz indirecta, dejar secar el suelo entre riegos."
       },
+      {
+        "nombre": "Haworthia",
+        "frecuenciaRiego": 240,
+        "descripcion": "Suculenta pequeña con hojas verdes y texturizadas.",
+        "recomendaciones": "Luz indirecta, riego escaso."
+      },
+      {
+        "nombre": "Crisantemo",
+        "frecuenciaRiego": 48,
+        "descripcion": "Planta con flores coloridas y vistosas.",
+        "recomendaciones": "Luz brillante, mantener el suelo constantemente húmedo."
+      },
+      {
+        "nombre": "Codiaeum (Croton)",
+        "frecuenciaRiego": 72,
+        "descripcion": "Planta de hoja perenne con hojas multicolores.",
+        "recomendaciones": "Luz brillante, humedad alta."
+      },
+      {
+        "nombre": "Fittonia",
+        "frecuenciaRiego": 48,
+        "descripcion": "Planta pequeña con hojas nervadas de colores vivos.",
+        "recomendaciones": "Luz indirecta, alta humedad."
+      },
+      {
+        "nombre": "Planta de Serpiente (Sansevieria Trifasciata)",
+        "frecuenciaRiego": 240,
+        "descripcion": "Planta resistente con hojas largas y puntiagudas.",
+        "recomendaciones": "Poca luz, riego esporádico."
+      },
+      {
+        "nombre": "Pilea Peperomioides",
+        "frecuenciaRiego": 72,
+        "descripcion": "Planta conocida por sus hojas redondas y verdes.",
+        "recomendaciones": "Luz indirecta brillante, dejar secar entre riegos."
+      },
+      {
+        "nombre": "Spathiphyllum (Lirio de la Paz)",
+        "frecuenciaRiego": 72,
+        "descripcion": "Planta con flores blancas y hojas largas y verdes.",
+        "recomendaciones": "Luz indirecta, alta humedad."
+      },
+      {
+        "nombre": "Tradescantia (Amor de Hombre)",
+        "frecuenciaRiego": 48,
+        "descripcion": "Planta de rápido crecimiento con hojas variegadas.",
+        "recomendaciones": "Luz indirecta, mantener húmedo."
+      },
+      {
+        "nombre": "Ceropegia (Cadena de Corazones)",
+        "frecuenciaRiego": 168,
+        "descripcion": "Planta suculenta colgante con pequeñas hojas en forma de corazón.",
+        "recomendaciones": "Luz brillante, riego moderado."
+      },
+      {
+        "nombre": "Oxalis (Trébol Púrpura)",
+        "frecuenciaRiego": 72,
+        "descripcion": "Planta con hojas en forma de trébol y color púrpura.",
+        "recomendaciones": "Luz indirecta, suelo húmedo."
+      },
   ]
 export default plantsData;

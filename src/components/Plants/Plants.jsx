@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { useContext } from "react";
+import { context } from '../../context/context'
 import plantsData from './api.js'; // Importar los datos de 'api.js'
 
 export const Plants = () => {
+  const { user } = useContext(context);
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [selectedPlants, setSelectedPlants] = useState([]);
+
+  console.log(user)
 
   const searchPlants = (searchQuery) => {
     const filteredData = plantsData.filter(plant =>
