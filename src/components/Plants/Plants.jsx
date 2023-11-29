@@ -162,7 +162,7 @@ export const Plants = () => {
           <tbody>
             {selectedPlants.map((plant, index) => (
               <tr key={index}>
-                <td>{plant.nombre}</td>
+                <td>{plant.id}</td>
                 <td>{plant.frecuenciaRiego} horas</td>
                 <td>{plant.descripcion}</td>
                 <td>{plant.recomendaciones}</td>
