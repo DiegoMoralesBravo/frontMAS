@@ -9,26 +9,32 @@ export const Plants = () => {
   const [results, setResults] = useState([]);
   const [selectedPlants, setSelectedPlants] = useState([]);
 
-  useEffect(() => {
-    // Función para cargar las plantas del usuario
-    const loadUserPlants = async () => {
-      try {
-        const response = await fetch(`https://apimas.onrender.com/getUserPlants?usuario=${user}`, {
-          method: 'GET'
-        });
+  // Función para cargar las plantas del usuario
+  const loadUserPlants = async () => {
+    try {
+      const response = await fetch(`https://apimas.onrender.com/getUserPlants?usuario=${user}`, {
+        method: 'GET'
+      });
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const plants = await response.json();
-        setSelectedPlants(plants); // Actualizar el estado con las plantas cargadas
-      } catch (error) {
-        console.error('Error al cargar las plantas:', error);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-    };
 
-    loadUserPlants();
+      const plants = await response.json();
+      setSelectedPlants(plants); // Actualizar el estado con las plantas cargadas
+    } catch (error) {
+      console.error('Error al cargar las plantas:', error);
+    }
+  };
+
+  useEffect(() => {
+    loadUserPlants(); // Cargar las plantas inmediatamente
+
+    const interval = setInterval(() => {
+      loadUserPlants(); // Cargar las plantas cada 30 segundos
+    }, 30000);
+
+    return () => clearInterval(interval); // Limpiar el intervalo al desmontar el componente
   }, [user]);
 
   const searchPlants = (searchQuery) => {
