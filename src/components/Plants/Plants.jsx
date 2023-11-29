@@ -9,7 +9,27 @@ export const Plants = () => {
   const [results, setResults] = useState([]);
   const [selectedPlants, setSelectedPlants] = useState([]);
 
-  console.log(user)
+  useEffect(() => {
+    // Función para cargar las plantas del usuario
+    const loadUserPlants = async () => {
+      try {
+        const response = await fetch(`https://apimas.onrender.com/getUserPlants?usuario=${user}`, {
+          method: 'GET'
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const plants = await response.json();
+        setSelectedPlants(plants); // Actualizar el estado con las plantas cargadas
+      } catch (error) {
+        console.error('Error al cargar las plantas:', error);
+      }
+    };
+
+    loadUserPlants();
+  }, [user]);
 
   const searchPlants = (searchQuery) => {
     const filteredData = plantsData.filter(plant =>
