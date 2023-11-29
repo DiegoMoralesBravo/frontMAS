@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-
 export const Plants = () => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
@@ -31,6 +30,12 @@ export const Plants = () => {
     setSelectedPlants(prevSelectedPlants => [...prevSelectedPlants, plant]);
   };
 
+  const removePlant = (index) => {
+    setSelectedPlants(prevSelectedPlants =>
+      prevSelectedPlants.filter((_, i) => i !== index)
+    );
+  };
+
   useEffect(() => {
     const timerId = setTimeout(() => {
       if (query) {
@@ -53,23 +58,60 @@ export const Plants = () => {
       />
       <div>
         {results.map((plant, index) => (
-          <div key={index} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div key={index} className="result-item">
             {plant}
             <button onClick={() => addPlant(plant)}>+</button>
           </div>
         ))}
       </div>
       <div>
-        <h3>Plantas seleccionadas:</h3>
-        <ul>
-          {selectedPlants.map((plant, index) => (
-            <li key={index}>{plant}</li>
-          ))}
-        </ul>
+        <h3>Tabla de Plantas Seleccionadas</h3>
+        <table className="crud-table">
+          <thead>
+            <tr>
+              <th>Nombre de la Planta</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {selectedPlants.map((plant, index) => (
+              <tr key={index}>
+                <td>{plant}</td>
+                <td>
+                  <button onClick={() => removePlant(index)}>Eliminar</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
+      <style jsx>{`
+        .result-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 5px;
+        }
+
+        .crud-table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+
+        .crud-table th, .crud-table td {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+
+        .crud-table th {
+          text-align: left;
+          background-color: #f2f2f2;
+        }
+
+        .crud-table tr:nth-child(even){background-color: #f2f2f2;}
+
+        .crud-table tr:hover {background-color: #ddd;}
+      `}</style>
     </div>
   );
 };
-
-export default PlantSearch;
-
