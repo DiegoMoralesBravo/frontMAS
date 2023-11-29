@@ -265,7 +265,7 @@ export const Plants = () => {
           height: 15px;
           width: 15px;
         }
-        table-crud-container {
+        .table-crud-container {
           display: flex;
           justify-content: center;
           align-items: center;
