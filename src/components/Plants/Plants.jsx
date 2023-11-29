@@ -50,7 +50,7 @@ export const Plants = () => {
       recomendaciones: plant.recomendaciones,
       lastWateredTime: lastWateredTime
     };
-  
+
     // Petición POST al endpoint de la API
     try {
       const response = await fetch('https://apimas.onrender.com/addPlant', {
@@ -60,17 +60,17 @@ export const Plants = () => {
         },
         body: JSON.stringify(dataToSend)
       });
-  
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-  
+
       const result = await response.json();
       console.log('Planta guardada con éxito:', result);
 
       const newPlant = {
         ...plant,
-        lastWateredTime:  lastWateredTime, // Tiempo actual,
+        lastWateredTime: lastWateredTime, // Tiempo actual,
         id: result.plant_id
       };
 
@@ -87,12 +87,12 @@ export const Plants = () => {
     const now = new Date().getTime();
     const nextWatering = lastWatered + wateringFrequency * 60 * 60 * 1000; // Convertir horas a milisegundos
     let timeLeft = nextWatering - now;
-  
+
     // Convertir milisegundos a horas y minutos
     timeLeft = Math.max(timeLeft, 0); // Evitar números negativos
     const hours = Math.floor(timeLeft / (60 * 60 * 1000));
     const minutes = Math.floor((timeLeft % (60 * 60 * 1000)) / 60000);
-  
+
     // Formatear texto de salida
     let formattedTime = '';
     if (hours > 0) {
@@ -104,19 +104,26 @@ export const Plants = () => {
     if (formattedTime === '') {
       formattedTime = 'Ahora';
     }
-  
+
     return formattedTime;
   };
 
   const updateLastWateredTime = async (plant, index) => {
+
+    const confirmWater = window.confirm(`¿Deseas marcar la planta '${plant.nombre}' como regada ahora?`);
+    if (!confirmWater) {
+      return; // Si el usuario cancela, no hacer nada
+    }
+
     const newLastWateredTime = new Date().toISOString();
-  
+
     // Datos a enviar
     const dataToSend = {
       plantId: plant.id,
       lastWateredTime: newLastWateredTime
     };
-  
+    console.log(dataToSend)
+
     try {
       const response = await fetch('https://apimas.onrender.com/updateLastWateredTime', {
         method: 'POST',
@@ -125,16 +132,16 @@ export const Plants = () => {
         },
         body: JSON.stringify(dataToSend)
       });
-  
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-  
+
       // Actualizar el estado para reflejar el cambio
       setSelectedPlants(prevSelectedPlants =>
         prevSelectedPlants.map((p, i) => i === index ? { ...p, lastWateredTime: newLastWateredTime } : p)
       );
-  
+
       console.log('Tiempo de riego actualizado con éxito');
     } catch (error) {
       console.error('Error al actualizar el tiempo de riego:', error);
@@ -143,10 +150,15 @@ export const Plants = () => {
 
   const removePlant = async (plantId, index) => {
 
-      // Datos a enviar
-      const dataToSend = {
-        plantId: plantId,
-      };
+    const confirmDelete = window.confirm('¿Estás seguro de que deseas eliminar esta planta?');
+    if (!confirmDelete) {
+      return; // Si el usuario cancela, no hacer nada
+    }
+
+    // Datos a enviar
+    const dataToSend = {
+      plantId: plantId,
+    };
 
     try {
       const response = await fetch(`https://apimas.onrender.com/removePlant`, {
@@ -160,12 +172,12 @@ export const Plants = () => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-  
+
       // Si la planta se elimina correctamente en el backend, actualizar el estado
       setSelectedPlants(prevSelectedPlants =>
         prevSelectedPlants.filter((_, i) => i !== index)
       );
-  
+
       console.log('Planta eliminada con éxito');
     } catch (error) {
       console.error('Error al eliminar la planta:', error);

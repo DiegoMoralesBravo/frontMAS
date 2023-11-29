@@ -30,9 +30,9 @@ export const Navbar = () => {
                 <NavLink to="/myplants">
                   <li>Reminders</li>
                 </NavLink>
-                <NavLink to="/history">
+                {/* <NavLink to="/history">
                   <li>Guides</li>
-                </NavLink>
+                </NavLink> */}
                 <NavLink onClick={() => { setUser(false) }} to="#">
                   <li >Log out</li>
                 </NavLink>
