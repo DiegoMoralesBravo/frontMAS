@@ -39,7 +39,7 @@ export const Plants = () => {
   };
 
   const addPlant = async (plant) => {
-    lastWateredTime = new Date().toISOString()
+    const lastWateredTime = new Date().toISOString()
 
     // Datos a enviar
     const dataToSend = {
