@@ -24,7 +24,7 @@ export const Navbar = () => {
                 <NavLink to="/">
                   <li>{user}</li>
                 </NavLink>
-                <NavLink to="/myplants">
+                <NavLink to="/plants">
                   <li>My plants</li>
                 </NavLink>
                 <NavLink to="/myplants">
