@@ -205,6 +205,7 @@ export const Plants = () => {
 
   return (
     <div>
+      Buscador de plantas: 
       <input
         type="text"
         placeholder="Buscar plantas..."
@@ -219,7 +220,7 @@ export const Plants = () => {
           </div>
         ))}
       </div>
-      <div>
+      <div className="table-crud-container">
         <h3>Mis plantas</h3>
         <table className="crud-table">
           <thead>
@@ -264,7 +265,12 @@ export const Plants = () => {
           height: 15px;
           width: 15px;
         }
-
+        table-crud-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 50px 20px;
+        }
         .crud-table {
           width: 100%;
           border-collapse: collapse;
