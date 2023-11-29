@@ -39,14 +39,8 @@ export const Plants = () => {
   };
 
   const addPlant = async (plant) => {
-    const newPlant = {
-      ...plant,
-      lastWateredTime: new Date().toISOString() // Tiempo actual
-    };
+    lastWateredTime = new Date().toISOString()
 
-    // Agregar la planta a la tabla
-    setSelectedPlants(prevSelectedPlants => [...prevSelectedPlants, newPlant]);
-  
     // Datos a enviar
     const dataToSend = {
       usuario: user,
@@ -73,9 +67,19 @@ export const Plants = () => {
   
       const result = await response.json();
       console.log('Planta guardada con éxito:', result);
+
+      const newPlant = {
+        ...plant,
+        lastWateredTime:  lastWateredTime, // Tiempo actual,
+        id: result.plant_id
+      };
+
+      // Agregar la planta a la tabla
+      setSelectedPlants(prevSelectedPlants => [...prevSelectedPlants, newPlant]);
     } catch (error) {
       console.error('Error al guardar la planta:', error);
     }
+
   };
 
   const calculateTimeLeftToWater = (lastWateredTime, wateringFrequency) => {
