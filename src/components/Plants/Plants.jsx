@@ -39,8 +39,14 @@ export const Plants = () => {
   };
 
   const addPlant = async (plant) => {
+
+    const newPlant = {
+      ...plant,
+      lastWateredTime: new Date().toISOString() // Tiempo actual
+    };
+
     // Agregar la planta a la tabla
-    setSelectedPlants(prevSelectedPlants => [...prevSelectedPlants, plant]);
+    setSelectedPlants(prevSelectedPlants => [...prevSelectedPlants, newPlant]);
   
     // Datos a enviar
     const dataToSend = {
@@ -48,7 +54,8 @@ export const Plants = () => {
       nombre: plant.nombre,
       frecuenciaRiego: plant.frecuenciaRiego,
       descripcion: plant.descripcion,
-      recomendaciones: plant.recomendaciones
+      recomendaciones: plant.recomendaciones,
+      lastWateredTime: lastWateredTime
     };
   
     // Petición POST al endpoint de la API
@@ -70,6 +77,14 @@ export const Plants = () => {
     } catch (error) {
       console.error('Error al guardar la planta:', error);
     }
+  };
+
+  const calculateTimeLeftToWater = (lastWateredTime, wateringFrequency) => {
+    const lastWatered = new Date(lastWateredTime).getTime();
+    const now = new Date().getTime();
+    const nextWatering = lastWatered + wateringFrequency * 60 * 60 * 1000; // Convertir horas a milisegundos
+    const timeLeft = nextWatering - now;
+    return Math.max(Math.floor(timeLeft / 60000), 0); // Convertir milisegundos a minutos y evitar números negativos
   };
 
   const removePlant = async (plantId, index) => {
@@ -140,16 +155,20 @@ export const Plants = () => {
               <th>Frecuencia de Riego</th>
               <th>Descripción</th>
               <th>Recomendaciones</th>
+              <th>Tiempo restante para regar (minutos)</th>
               <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
             {selectedPlants.map((plant, index) => (
               <tr key={index}>
-                <td>{plant.nombre} {plant.id}</td>
+                <td>{plant.nombre}</td>
                 <td>{plant.frecuenciaRiego} horas</td>
                 <td>{plant.descripcion}</td>
                 <td>{plant.recomendaciones}</td>
+                <td>
+                  {calculateTimeLeftToWater(plant.lastWateredTime, plant.frecuenciaRiego)}
+                </td>
                 <td>
                   <button onClick={() => removePlant(plant.id, index)}>Eliminar</button>
                 </td>
