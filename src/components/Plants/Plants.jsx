@@ -86,8 +86,59 @@ export const Plants = () => {
     const lastWatered = new Date(lastWateredTime).getTime();
     const now = new Date().getTime();
     const nextWatering = lastWatered + wateringFrequency * 60 * 60 * 1000; // Convertir horas a milisegundos
-    const timeLeft = nextWatering - now;
-    return Math.max(Math.floor(timeLeft / 60000), 0); // Convertir milisegundos a minutos y evitar números negativos
+    let timeLeft = nextWatering - now;
+  
+    // Convertir milisegundos a horas y minutos
+    timeLeft = Math.max(timeLeft, 0); // Evitar números negativos
+    const hours = Math.floor(timeLeft / (60 * 60 * 1000));
+    const minutes = Math.floor((timeLeft % (60 * 60 * 1000)) / 60000);
+  
+    // Formatear texto de salida
+    let formattedTime = '';
+    if (hours > 0) {
+      formattedTime += `${hours} hora${hours > 1 ? 's' : ''} `;
+    }
+    if (minutes > 0) {
+      formattedTime += `${minutes} minuto${minutes > 1 ? 's' : ''}`;
+    }
+    if (formattedTime === '') {
+      formattedTime = 'Ahora';
+    }
+  
+    return formattedTime;
+  };
+
+  const updateLastWateredTime = async (plant, index) => {
+    const newLastWateredTime = new Date().toISOString();
+  
+    // Datos a enviar
+    const dataToSend = {
+      plantId: plant.id,
+      lastWateredTime: newLastWateredTime
+    };
+  
+    try {
+      const response = await fetch('https://apimas.onrender.com/updateLastWateredTime', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dataToSend)
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      // Actualizar el estado para reflejar el cambio
+      setSelectedPlants(prevSelectedPlants =>
+        prevSelectedPlants.map((p, i) => i === index ? { ...p, lastWateredTime: newLastWateredTime } : p)
+      );
+  
+      console.log('Tiempo de riego actualizado con éxito');
+    } catch (error) {
+      console.error('Error al actualizar el tiempo de riego:', error);
+    }
   };
 
   const removePlant = async (plantId, index) => {
@@ -165,7 +216,7 @@ export const Plants = () => {
           <tbody>
             {selectedPlants.map((plant, index) => (
               <tr key={index}>
-                <td>{plant.id}</td>
+                <td>{plant.nombre}</td>
                 <td>{plant.frecuenciaRiego} horas</td>
                 <td>{plant.descripcion}</td>
                 <td>{plant.recomendaciones}</td>
@@ -173,6 +224,7 @@ export const Plants = () => {
                   {calculateTimeLeftToWater(plant.lastWateredTime, plant.frecuenciaRiego)}
                 </td>
                 <td>
+                  <button onClick={() => updateLastWateredTime(plant, index)}>Regada Ahora</button>
                   <button onClick={() => removePlant(plant.id, index)}>Eliminar</button>
                 </td>
               </tr>
