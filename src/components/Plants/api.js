@@ -317,5 +317,65 @@ const plantsData = [
         "descripcion": "Flor de fácil cuidado con flores brillantes y multicolores.",
         "recomendaciones": "Sol pleno, suelo bien drenado, eliminar flores marchitas para fomentar más floración."
       },
+      {
+        "nombre": "Aster",
+        "frecuenciaRiego": 48,
+        "descripcion": "Flor perenne con flores parecidas a margaritas, en tonos de azul, púrpura y rosa.",
+        "recomendaciones": "Sol pleno, suelo bien drenado, poda después de la floración."
+      },
+      {
+        "nombre": "Lavanda",
+        "frecuenciaRiego": 120,
+        "descripcion": "Arbusto aromático con flores en espigas de color violeta.",
+        "recomendaciones": "Sol pleno, suelo bien drenado, podar para mantener la forma."
+      },
+      {
+        "nombre": "Crisantemo",
+        "frecuenciaRiego": 48,
+        "descripcion": "Popular flor de otoño con una amplia gama de colores y formas.",
+        "recomendaciones": "Sol pleno, suelo fértil y bien drenado, dividir cada pocos años."
+      },
+      {
+        "nombre": "Gazania",
+        "frecuenciaRiego": 72,
+        "descripcion": "Flores brillantes y coloridas que se cierran en días nublados y por la noche.",
+        "recomendaciones": "Sol pleno, suelo bien drenado, ideal para climas cálidos."
+      },
+      {
+        "nombre": "Alhelí",
+        "frecuenciaRiego": 48,
+        "descripcion": "Flor con un agradable aroma y una variedad de colores.",
+        "recomendaciones": "Sol pleno a parcial, suelo fértil y bien drenado, eliminar flores marchitas."
+      },
+      {
+        "nombre": "Rudbeckia (Ojo Negro)",
+        "frecuenciaRiego": 48,
+        "descripcion": "Flor perenne con un distintivo centro oscuro y pétalos amarillos.",
+        "recomendaciones": "Sol pleno, suelo bien drenado, resistente a la sequía."
+      },
+      {
+        "nombre": "Anémona",
+        "frecuenciaRiego": 48,
+        "descripcion": "Flor delicada disponible en varios colores, con un centro distintivo.",
+        "recomendaciones": "Sombra parcial, suelo húmedo y bien drenado, proteger de vientos fuertes."
+      },
+      {
+        "nombre": "Campanilla",
+        "frecuenciaRiego": 48,
+        "descripcion": "Flores en forma de campana, comúnmente en tonos de azul y púrpura.",
+        "recomendaciones": "Sol pleno a sombra parcial, suelo bien drenado, buena para bordes y macetas."
+      },
+      {
+        "nombre": "Delphinium",
+        "frecuenciaRiego": 48,
+        "descripcion": "Planta perenne con espigas de flores, generalmente en azul o púrpura.",
+        "recomendaciones": "Sol pleno, suelo rico y bien drenado, estacar para soporte."
+      },
+      {
+        "nombre": "Freesia",
+        "frecuenciaRiego": 72,
+        "descripcion": "Flores aromáticas en una variedad de colores, conocidas por su larga vida en florero.",
+        "recomendaciones": "Sol pleno a sombra ligera, suelo bien drenado, ideal para ramos de flores."
+      },
   ]
 export default plantsData;

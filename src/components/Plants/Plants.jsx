@@ -72,10 +72,25 @@ export const Plants = () => {
     }
   };
 
-  const removePlant = (index) => {
-    setSelectedPlants(prevSelectedPlants =>
-      prevSelectedPlants.filter((_, i) => i !== index)
-    );
+  const removePlant = async (plantId, index) => {
+    try {
+      const response = await fetch(`https://apimas.onrender.com/removePlant/${plantId}`, {
+        method: 'DELETE'
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      // Si la planta se elimina correctamente en el backend, actualizar el estado
+      setSelectedPlants(prevSelectedPlants =>
+        prevSelectedPlants.filter((_, i) => i !== index)
+      );
+  
+      console.log('Planta eliminada con éxito');
+    } catch (error) {
+      console.error('Error al eliminar la planta:', error);
+    }
   };
 
   useEffect(() => {
@@ -126,7 +141,7 @@ export const Plants = () => {
                 <td>{plant.descripcion}</td>
                 <td>{plant.recomendaciones}</td>
                 <td>
-                  <button onClick={() => removePlant(index)}>Eliminar</button>
+                  <button onClick={() => removePlant(plant.id, index)}>Eliminar</button>
                 </td>
               </tr>
             ))}
