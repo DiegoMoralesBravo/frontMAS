@@ -48,7 +48,7 @@ export const Plants = () => {
       frecuenciaRiego: plant.frecuenciaRiego,
       descripcion: plant.descripcion,
       recomendaciones: plant.recomendaciones,
-      lastWateredTime: newPlant.lastWateredTime
+      lastWateredTime: lastWateredTime
     };
   
     // Petición POST al endpoint de la API
