@@ -39,7 +39,6 @@ export const Plants = () => {
   };
 
   const addPlant = async (plant) => {
-
     const newPlant = {
       ...plant,
       lastWateredTime: new Date().toISOString() // Tiempo actual
@@ -55,7 +54,7 @@ export const Plants = () => {
       frecuenciaRiego: plant.frecuenciaRiego,
       descripcion: plant.descripcion,
       recomendaciones: plant.recomendaciones,
-      lastWateredTime: lastWateredTime
+      lastWateredTime: newPlant.lastWateredTime
     };
   
     // Petición POST al endpoint de la API
