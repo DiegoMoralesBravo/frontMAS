@@ -13,7 +13,7 @@ export const SignUp = ({ setVisibleOther, setVisibleSelf }) => {
 
   const clearForm = () => {
     setEmail("");
-    setOccupation("");
+    // setOccupation("");
     setPassword("");
     setConfirmPassword("");
   }
@@ -36,7 +36,7 @@ export const SignUp = ({ setVisibleOther, setVisibleSelf }) => {
         },
         body: JSON.stringify({
           email,
-          occupation,
+          // occupation,
           password
         })
       });
@@ -70,13 +70,13 @@ export const SignUp = ({ setVisibleOther, setVisibleSelf }) => {
               onChange={(e) => setEmail(e.target.value)}
             />
 
-            <select className='input-form' value={occupation} onChange={(e) => setOccupation(e.target.value)}>
+            {/* <select className='input-form' value={occupation} onChange={(e) => setOccupation(e.target.value)}>
               <option value="" disabled>Select your occupation</option>
               <option value="student">Student</option>
               <option value="teacher">Teacher</option>
               <option value="researcher">Researcher</option>
               <option value="other">Other</option>
-            </select>
+            </select> */}
 
             <input className='input-form'
               type="password"
