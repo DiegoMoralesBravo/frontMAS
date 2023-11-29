@@ -73,13 +73,19 @@ export const Plants = () => {
   };
 
   const removePlant = async (plantId, index) => {
+
+      // Datos a enviar
+      const dataToSend = {
+        plantId: plantId,
+      };
+
     try {
       const response = await fetch(`https://apimas.onrender.com/removePlant`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ plantId: plantId })
+        body: JSON.stringify(dataToSend)
       });
 
       if (!response.ok) {
@@ -140,7 +146,7 @@ export const Plants = () => {
           <tbody>
             {selectedPlants.map((plant, index) => (
               <tr key={index}>
-                <td>{plant.nombre}</td>
+                <td>{plant.nombre} {plant.id}</td>
                 <td>{plant.frecuenciaRiego} horas</td>
                 <td>{plant.descripcion}</td>
                 <td>{plant.recomendaciones}</td>
