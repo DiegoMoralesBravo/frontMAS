@@ -220,7 +220,7 @@ export const Plants = () => {
         ))}
       </div>
       <div>
-        <h3>Tabla de Plantas Seleccionadas</h3>
+        <h3>Mis plantas</h3>
         <table className="crud-table">
           <thead>
             <tr>
@@ -266,7 +266,7 @@ export const Plants = () => {
         }
 
         .crud-table {
-          width: 80%;
+          width: 100%;
           border-collapse: collapse;
         }
 
