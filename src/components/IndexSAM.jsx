@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { context } from './../context/context'
 import { How } from './How/How';
 import { What } from './What/What';
-import image from '../image/plants.png'
+import image from '../image/microscope_tem.jpg'
 
 export const Index = () => {
   const { setVisibleLogIn, setVisibleSignUp, user } = useContext(context);
@@ -13,12 +13,12 @@ export const Index = () => {
       <div className='index-container' >
         <div className='data-container'>
           <div className='text-container'>
-            <h1>RegaAlert</h1>
+            <h1>SYSTEM FOR SEGMENTATION AND COUNTING OF NANOPARTICLES</h1>
           </div>
           <div className='half-line'>
           </div>
           <div className='description-container'>
-            <p>A web application assisting plant enthusiasts by offering personalized watering reminders and care tips. With RegaLert, every plant in your home gets the right attention, ensuring a thriving green environment.</p>
+            <p>System to generate reports of size and quantity of nanoparticles in scanning electron microscope (SEM) and Transmission electron microscopes (TEM) micrographs.</p>
           </div>
           {user != '' ? (
             <p className='menssage'>Welcome {user}!</p>
@@ -31,13 +31,13 @@ export const Index = () => {
 
         </div>
         <div className='image-container'>
-          <img clasName='main-image' src={image} alt="" style={{ width: '680px  ', height: '780px' , paddingTop: '30px' }}/>
+          <img clasName='main-image' src={image} alt="" />
         </div>
       </div>
-      {/* <div className='spacer layer1'></div>
+      <div className='spacer layer1'></div>
       <What />
       <div className='spacer layer2'></div>
-      <How /> */}
+      <How />
     </>
   )
 }
